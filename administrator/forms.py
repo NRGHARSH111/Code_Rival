@@ -213,7 +213,7 @@ class QuestionForm(forms.ModelForm):
 
 
 # Removed ForgotPasswordForm - replaced by Django built-in password reset
-    identifier = forms.CharField(max_length=100, required=True, label='Email or Phone Number',
+identifier = forms.CharField(max_length=100, required=True, label='Email or Phone Number',
                                widget=forms.TextInput(attrs={
                                    'class': 'form-control',
                                    'placeholder': 'Enter your email or phone number'
@@ -221,7 +221,7 @@ class QuestionForm(forms.ModelForm):
 
 
 # Removed OTPVerificationForm - replaced by Django built-in password reset
-    otp = forms.CharField(max_length=6, required=True, label='OTP',
+otp = forms.CharField(max_length=6, required=True, label='OTP',
                          widget=forms.TextInput(attrs={
                              'class': 'form-control',
                              'placeholder': 'Enter the 6-digit OTP',
@@ -231,20 +231,20 @@ class QuestionForm(forms.ModelForm):
 
 
 # Removed ResetPasswordForm - replaced by Django built-in password reset
-    new_password = forms.CharField(max_length=128, required=True, label='New Password',
+new_password = forms.CharField(max_length=128, required=True, label='New Password',
                                  widget=forms.PasswordInput(attrs={
                                      'class': 'form-control',
                                      'placeholder': 'Enter new password',
                                      'autocomplete': 'new-password'
                                  }))
-    confirm_password = forms.CharField(max_length=128, required=True, label='Confirm Password',
+confirm_password = forms.CharField(max_length=128, required=True, label='Confirm Password',
                                      widget=forms.PasswordInput(attrs={
                                          'class': 'form-control',
                                          'placeholder': 'Confirm new password',
                                          'autocomplete': 'new-password'
                                      }))
     
-    def clean(self):
+def clean(self):
         cleaned_data = super().clean()
         new_password = cleaned_data.get('new_password')
         confirm_password = cleaned_data.get('confirm_password')
